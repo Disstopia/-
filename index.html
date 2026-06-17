@@ -33,13 +33,25 @@
       min-height: 100vh;
     }
 
-    /* Rainbow bar top */
+    /* Trans flag bar top */
     .rainbow-bar {
-      height: 6px;
-      background: linear-gradient(90deg,
-        var(--rainbow-1) 0%, var(--rainbow-2) 25%,
-        var(--rainbow-3) 50%, var(--rainbow-4) 75%,
-        var(--purple-mid) 100%);
+      height: 10px;
+      background: linear-gradient(180deg,
+        #55CDFC 0%, #55CDFC 20%,
+        #F7A8B8 20%, #F7A8B8 40%,
+        #FFFFFF 40%, #FFFFFF 60%,
+        #F7A8B8 60%, #F7A8B8 80%,
+        #55CDFC 80%, #55CDFC 100%);
+    }
+
+    /* Trans flag hero accent */
+    .trans-flag-strip {
+      display: flex;
+      height: 5px;
+      width: 100%;
+    }
+    .trans-flag-strip span {
+      flex: 1;
     }
 
     /* Hero */
@@ -485,8 +497,15 @@
 
 <!-- Hero -->
 <div class="hero">
+  <div class="trans-flag-strip" style="position:absolute;top:0;left:0;width:100%;height:8px;display:flex;">
+    <span style="flex:1;background:#55CDFC;"></span>
+    <span style="flex:1;background:#F7A8B8;"></span>
+    <span style="flex:1;background:#FFFFFF;"></span>
+    <span style="flex:1;background:#F7A8B8;"></span>
+    <span style="flex:1;background:#55CDFC;"></span>
+  </div>
   <div class="hero-title">난 너 가능해</div>
-  <div class="hero-hearts">💜 💜 💜</div>
+  <div class="hero-hearts">💜 🩵 🤍</div>
   <div class="hero-info">
     <div class="info-chip"><span class="icon">📅</span> 2026년 8월 29일 (토)</div>
     <div class="info-chip"><span class="icon">⏰</span> 18:00 – 20:00</div>
@@ -559,7 +578,6 @@
           <label class="radio-label"><input type="radio" name="gender" value="트랜스여성" /> 트랜스여성</label>
           <label class="radio-label"><input type="radio" name="gender" value="트랜스남성" /> 트랜스남성</label>
           <label class="radio-label"><input type="radio" name="gender" value="논바이너리/젠더퀴어" /> 논바이너리 / 젠더퀴어</label>
-          <label class="radio-label"><input type="radio" name="gender" value="바이젠더" /> 바이젠더</label>
           <label class="radio-label"><input type="radio" name="gender" value="시스젠더 여성" /> 시스젠더 여성</label>
           <label class="radio-label"><input type="radio" name="gender" value="시스젠더 남성" /> 시스젠더 남성</label>
           <label class="radio-label" id="gender-other-wrap">
@@ -572,10 +590,10 @@
 
       <!-- 연락처 -->
       <div class="field">
-        <label>카카오톡 ID <span class="required">*</span></label>
+        <label>전화번호 <span class="required">*</span></label>
         <p class="field-hint">행사 안내 및 확정 연락에 사용됩니다</p>
-        <input type="text" id="kakao" placeholder="카카오톡 ID를 입력해주세요" maxlength="50" />
-        <div class="error-msg" id="err-kakao">카카오톡 ID를 입력해주세요</div>
+        <input type="tel" id="kakao" placeholder="010-0000-0000" maxlength="20" />
+        <div class="error-msg" id="err-kakao">전화번호를 입력해주세요</div>
       </div>
 
       <!-- 관심 상대 -->
@@ -586,7 +604,6 @@
           <label class="checkbox-label"><input type="checkbox" name="interest" value="트랜스여성" /> 트랜스여성</label>
           <label class="checkbox-label"><input type="checkbox" name="interest" value="트랜스남성" /> 트랜스남성</label>
           <label class="checkbox-label"><input type="checkbox" name="interest" value="논바이너리/젠더퀴어" /> 논바이너리 / 젠더퀴어</label>
-          <label class="checkbox-label"><input type="checkbox" name="interest" value="바이젠더" /> 바이젠더</label>
           <label class="checkbox-label"><input type="checkbox" name="interest" value="시스젠더 여성" /> 시스젠더 여성</label>
           <label class="checkbox-label"><input type="checkbox" name="interest" value="시스젠더 남성" /> 시스젠더 남성</label>
           <label class="checkbox-label"><input type="checkbox" name="interest" value="모두 가능" /> 모두 가능 💜</label>
@@ -600,8 +617,10 @@
         <p class="field-hint">참가비 30,000원 입금 후 입금자명을 정확히 입력해주세요</p>
         <input type="text" id="depositor" placeholder="입금할 때 사용한 이름" maxlength="20" />
         <div class="error-msg" id="err-depositor">입금자명을 입력해주세요</div>
-        <div style="background:#f0fdf4; border:1px solid #86efac; border-radius:8px; padding:12px 14px; font-size:13px; color:#166534; margin-top:4px; line-height:1.6;">
-          💳 입금 계좌 정보는 신청 확정 후 카카오톡으로 안내드립니다
+        <div style="background:#f0fdf4; border:1px solid #86efac; border-radius:8px; padding:12px 14px; font-size:13px; color:#166534; margin-top:4px; line-height:1.8;">
+          💳 <strong>입금 계좌</strong><br>
+          토스 100029881117 · 채ㅅ연<br>
+          <span style="color:#15803d;">입금 후 위 계좌 이름과 동일하게 입금자명을 입력해주세요</span>
         </div>
       </div>
 
@@ -611,7 +630,7 @@
           <input type="checkbox" id="privacy" />
           <span>개인정보 수집 및 이용에 동의합니다 <span class="required">*</span></span>
         </label>
-        <p class="field-hint" style="margin-top:4px;">수집 항목: 닉네임, 나이, 성별정체성, 카카오톡 ID, 입금자명 / 보유기간: 행사 종료 후 즉시 삭제</p>
+        <p class="field-hint" style="margin-top:4px;">수집 항목: 닉네임, 나이, 성별정체성, 전화번호, 관심 상대 성별/정체성, 입금자명 / 보유기간: 행사 종료 후 즉시 삭제</p>
         <div class="error-msg" id="err-privacy">개인정보 수집에 동의해주세요</div>
       </div>
 
@@ -626,7 +645,7 @@
       <div class="success-title">신청 완료!</div>
       <div class="success-msg">
         <strong id="successNickname"></strong>님, 신청해주셔서 감사해요 💜<br>
-        카카오톡으로 확정 안내를 드릴게요!
+        문자로 확정 안내를 드릴게요!
       </div>
       <div class="success-info">
         <strong>📅 행사 정보</strong><br>
@@ -634,7 +653,7 @@
         시간: 18:00 – 20:00<br>
         장소: 젠더리스바 별라<br><br>
         <strong>💳 참가비 안내</strong><br>
-        30,000원 — 카카오톡으로 계좌 안내 예정<br><br>
+        30,000원 · 토스 100029881117 · 채ㅅ연<br><br>
         소개팅 + 네트워킹 + 다양한 콘텐츠로 만나요! 💜
       </div>
     </div>
@@ -642,12 +661,18 @@
   </div>
 </div>
 
-<div class="footer-rainbow"></div>
+<div style="height:10px;display:flex;">
+  <span style="flex:1;background:#55CDFC;"></span>
+  <span style="flex:1;background:#F7A8B8;"></span>
+  <span style="flex:1;background:#FFFFFF;"></span>
+  <span style="flex:1;background:#F7A8B8;"></span>
+  <span style="flex:1;background:#55CDFC;"></span>
+</div>
 
 <script>
   // ========== CONFIG ==========
   // Vercel 배포 후 여기에 실제 API 주소를 넣어주세요
-  const API_BASE = 'https://hearmeout-chi.vercel.app';  // 예: 'https://your-project.vercel.app'
+  const API_BASE = '';  // 예: 'https://your-project.vercel.app'
   const MAX_CAPACITY = 20;
 
   // ========== 신청 현황 불러오기 ==========
@@ -733,7 +758,7 @@
     showError('gender', !genderOk);
     if (!genderOk) valid = false;
 
-    // 카카오
+    // 전화번호
     const kakao = document.getElementById('kakao').value.trim();
     const kakaoOk = kakao.length > 0;
     showError('kakao', !kakaoOk);
@@ -782,7 +807,7 @@
       nickname: document.getElementById('nickname').value.trim(),
       age: document.getElementById('age').value,
       gender,
-      kakao: document.getElementById('kakao').value.trim(),
+      phone: document.getElementById('kakao').value.trim(),
       interest: interests,
       depositor: document.getElementById('depositor').value.trim(),
       timestamp: new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })
