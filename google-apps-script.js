@@ -30,7 +30,7 @@ function doPost(e) {
 
     // 헤더 없으면 만들기
     if (sheet.getLastRow() === 0) {
-      sheet.appendRow(['신청시각', '닉네임', '나이', '성별정체성', '카카오톡ID', '관심상대', '입금자명']);
+      sheet.appendRow(['신청시각', '닉네임', '나이', '성별정체성', '전화번호', '관심상대', '입금자명']);
       sheet.getRange(1, 1, 1, 7).setFontWeight('bold').setBackground('#7B35C1').setFontColor('#ffffff');
     }
 
@@ -48,7 +48,7 @@ function doPost(e) {
       data.nickname,
       data.age,
       data.gender,
-      data.kakao,
+      data.phone,
       data.interest,
       data.depositor
     ]);
